@@ -20,6 +20,7 @@ const Faculty = (props) => {
     school: "school",
     languages: "languages",
     gender: "gender",
+    user_type:""
   });
   const [error, setError] = useState("");
 
@@ -44,6 +45,7 @@ const Faculty = (props) => {
           school: res.data.school,
           languages: res.data.languages,
           gender: res.data.gender,
+          user_type:res.data.user_type
         });
       })
       .catch((err) => {
@@ -95,7 +97,7 @@ const Faculty = (props) => {
           
         
 
-        {props.users.user.user_type === "faculty" ? (
+        {profile.user_type === "faculty" ? (
           <div className="">
             <li className="li1"> 
             <button className="btn btn-primary ">

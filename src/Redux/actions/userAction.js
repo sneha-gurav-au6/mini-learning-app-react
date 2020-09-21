@@ -65,7 +65,7 @@ export const editProfile = (data) => (dispatch) => {
         toast.success("Profile Edited Successfully!", {
           position: toast.POSITION.TOP_CENTER,
       });
-data.history.push('/faculty')
+      data.history.push('/faculty')
         await setToken(res.data.token, dispatch);
       }
     })
