@@ -112,6 +112,11 @@ if(nextprops.auth.user.id){
                   <div className="invalid-feedback">{errors.message}</div>
                 )}
               </div>
+
+              <h6>Not Registered??Register now</h6>
+                <button className="btn btn-primary">
+                  <a href="/"  style={{ color: "white" }}>Login</a>
+                </button>
             </form>
           </div>
           <div className="col-md-1"></div>
