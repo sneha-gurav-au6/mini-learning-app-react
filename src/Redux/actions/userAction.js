@@ -2,6 +2,10 @@ import { RegisterUser, LoginUser, UserProfile, Get_Error } from "./userType";
 import jwt_decode from "jwt-decode";
 import setAuthToken from "./setAuthToken";
 import axios from "axios";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer, toast } from "react-toastify";
+toast.configure();
+
 export const RegisterUsers = (data1) => async (dispatch) => {
   console.log(data1.newUser);
 
@@ -12,8 +16,10 @@ export const RegisterUsers = (data1) => async (dispatch) => {
     )
     .then((res) => {
       if (res.status === 200) {
-        alert("Registered successfully.");
-
+      
+        toast.success("Registered successfully!", {
+          position: toast.POSITION.TOP_CENTER,
+      });
         dispatch({ type: RegisterUser, payload: res.data.user });
       }
 
@@ -29,7 +35,10 @@ export const loginUsers = (data) => async (dispatch) => {
     .post("https://mini-learning-app.herokuapp.com/user/login", data.newUser)
     .then((data1) => {
       if (data1.status === 200) {
-        alert("Logged in successfully.");
+        toast.success("Logged in successfully", {
+          position: toast.POSITION.TOP_CENTER,
+      });
+    
         console.log(data1.data);
         // dispatch({ type: LoginUser, payload: data1.data.user });
         setToken(data1.data.token, dispatch);
@@ -53,8 +62,10 @@ export const editProfile = (data) => (dispatch) => {
     .then(async (res) => {
       console.log(res);
       if (res.status === 200) {
-        alert("Profile Edited Successfully");
-
+        toast.success("Profile Edited Successfully!", {
+          position: toast.POSITION.TOP_CENTER,
+      });
+data.history.push('/faculty')
         await setToken(res.data.token, dispatch);
       }
     })

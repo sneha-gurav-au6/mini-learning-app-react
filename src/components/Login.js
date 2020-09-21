@@ -42,8 +42,10 @@ class Login extends Component {
   //after changing props to get data
   componentWillReceiveProps(nextprops) {
     console.log(nextprops.auth.user.id);
-
-    this.props.history.push("/faculty");
+if(nextprops.auth.user.id){
+  this.props.history.push("/faculty");
+}
+   
   }
   render() {
     console.log(this.props.history.location.state);
@@ -52,7 +54,7 @@ class Login extends Component {
     return (
       <div className="container-fluid register">
         <div className="row mt-2">
-          <div className="col-md-2"></div>
+          <div className="col-md-3"></div>
 
           {/* 
                     login form  */}
@@ -112,7 +114,7 @@ class Login extends Component {
               </div>
             </form>
           </div>
-          <div className="col-md-2"></div>
+          <div className="col-md-1"></div>
         </div>
       </div>
     );

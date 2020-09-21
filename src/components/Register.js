@@ -70,8 +70,8 @@ class Register extends Component {
     return (
       <div className="container-fluid ">
         {/* google login */}
-        <div className="row mt-2">
-          <div className="col-md-1"></div>
+        <div className="row mt-3">
+          <div className="col-md-3"></div>
 
           {/* register form */}
           <div className="col-md-5 text1">
@@ -142,14 +142,14 @@ class Register extends Component {
                 >
                   Submit
                 </button>
-                <h6>Already registered !!! Please login..</h6>
+                <h6>Already registered ?? Please login..</h6>
                 <button onClick={this.handlelogin} className="btn btn-primary">
                   <a style={{ color: "white" }}>Login</a>
                 </button>
               </div>
             </form>
           </div>
-          <div className="col-md-3"></div>
+          <div className="col-md-1"></div>
         </div>
       </div>
     );

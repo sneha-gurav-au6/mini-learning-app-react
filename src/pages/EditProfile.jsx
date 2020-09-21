@@ -34,8 +34,9 @@ class EditProfile extends Component {
     const formData = new FormData(e.target);
     this.props.editProfile({
       editData: formData,
-      history: this.props.user,
+      history: this.props.history,
     });
+    
   };
 
   render() {

@@ -2,9 +2,12 @@ import React, { Component, useEffect, useState } from "react";
 import Register from "../components/Register";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
-import "./style/faculty.css";
+ import "./style/faculty.css";
 import { logoutUser } from "../Redux/actions/userAction";
 import axios from "axios";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer, toast } from "react-toastify";
+toast.configure();
 
 const Faculty = (props) => {
   const [profile, setProfile] = useState({
@@ -52,7 +55,10 @@ const Faculty = (props) => {
   const handleLogout = async (e) => {
     e.preventDefault();
     props.logoutUser();
-    alert("Logout Successfully");
+    toast.success("Logout Successfully!", {
+      position: toast.POSITION.TOP_CENTER,
+  });
+   
     props.history.push("/login");
   };
 
@@ -60,77 +66,111 @@ const Faculty = (props) => {
     const data = await axios.get(
       "https://mini-learning-app.herokuapp.com/myRegisteredCourse"
     );
-    console.log(data.data);
-    props.history.push({ pathname: "/mycreatedcourse", state: data.data });
+    const arr1=data.data
+    const arr2 = arr1.flat()
+    console.log(arr2)
+    props.history.push({ pathname: "/mycreatedcourse", state: arr2});
   };
   // console.log(props.users.user);
   return (
-    <div className="row yu">
-      <div className="col-md-3"></div>
-      <div className="main col-md-6">
-        <div className="img">
-          <img className="image" src={props.users.user.image} />
-        </div>
+    <div className="row ">
+      <div className="col-md-1"></div>
+      <div className=" col-md-3 but">
+      
 
-        <div className="btuu2">
-          <button className="btn btn-primary btuu1">
+        <div className="main">
+          <ul class="list-unstyled">
+          <li className="li1">
+          <button className="btn btn-primary ">
             <a style={{ color: "white" }} href="/editprofile">
               Edit Profile
             </a>
           </button>
-          <button onClick={handleLogout} className="btn btn-primary  btuu1">
+          </li>
+       <li className="li1">
+       <button onClick={handleLogout} className="btn btn-primary  ">
             Logout
           </button>
-        </div>
+       </li>
+          
+        
 
         {props.users.user.user_type === "faculty" ? (
-          <div className="btuu">
-            <button className="btn btn-primary btuu1">
+          <div className="">
+            <li className="li1"> 
+            <button className="btn btn-primary ">
               <a style={{ color: "white" }} href="/addnewcourse">
                 Add New Course
               </a>
             </button>
-            <button className="btn btn-primary btuu1">
+            </li>
+          
+            <li className="li1">
+            <button className="btn btn-primary ">
               <a style={{ color: "white" }} href="/mycreatedcourse">
                 My Craeted course
               </a>
             </button>
+            </li>
+           
           </div>
         ) : (
           <div>
+            <li className="li1">
             <button
               style={{ color: "white" }}
               onClick="handleViewCourse"
-              className="btn btn-primary btuu1"
+              className="btn btn-primary "
             >
               <a style={{ color: "white" }} href="/allcources">
                 View All Courses
               </a>
             </button>
-            <button
+            </li>
+          
+          <li className="li1">
+          <button
               style={{ color: "white" }}
               onClick={handleRegisteredCourse}
-              className="btn btn-primary btuu1"
+              className="btn btn-primary "
             >
               My Registered course
             </button>
+          </li>
+          
           </div>
         )}
-        <div className="text">
-          <h2>Hello, {profile.name}</h2>
+          </ul>
+         
+      </div>
+      </div>
+      <div className="col-md-1"></div>
 
-          <h4>City: {profile.city}</h4>
-          <h4>Contact no: {profile.phone_no}</h4>
+      <div className="col-md-6">
+      <div className="img">
+        
+        </div>
+      <div className="text">
+      <img className="image" src={props.users.user.image} />
+      <div className="para">
+      <h2>Hello, {profile.name}</h2>
 
-          <h4>About me: {profile.about_me}</h4>
-          <h4>Company: {profile.company}</h4>
-          <h4>School name: {profile.school}</h4>
-          <h4>Hometown name: {profile.hometown}</h4>
-          <h4>Languages: {profile.languages}</h4>
-          <h4>Gender: {profile.gender}</h4>
+<h4>City: {profile.city}</h4>
+<h4>Contact no: {profile.phone_no}</h4>
+
+<h4>About me: {profile.about_me}</h4>
+<h4>Company: {profile.company}</h4>
+<h4>School name: {profile.school}</h4>
+<h4>Hometown name: {profile.hometown}</h4>
+<h4>Languages: {profile.languages}</h4>
+<h4>Gender: {profile.gender}</h4>
+      </div>
+         
         </div>
       </div>
-      <div className="col-md-3"></div>
+        
+        <div className="col-md-2"></div>
+      
     </div>
   );
 };

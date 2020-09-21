@@ -40,12 +40,12 @@ class MainMyCreatedCourses extends Component {
           </div>
           {this.props.user.user.user_type === "faculty" ? (
             <div>
-              <button className="btn btn-primary">Edit</button>
-              <button className="btn btn-primary">Delete</button>
+              <button className="btn btn-primary bt1">Edit</button>
+              <button className="btn btn-primary bt1">Delete</button>
             </div>
           ) : (
             <div>
-              <button className="btn btn-primary">
+              <button className="btn btn-primary bt1">
                 Remove from registered list
               </button>
             </div>

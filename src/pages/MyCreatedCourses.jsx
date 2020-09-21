@@ -23,6 +23,10 @@ class MyCreatedCourses extends Component {
     const arr2 = arr1.flat();
     //setting data to state
     this.setState({ data: arr2 });
+
+    if (this.props.history.location.state) {
+      this.setState({ data: this.props.history.location.state });
+    }
   }
 
   //setting updated data and sending to next props
@@ -43,6 +47,7 @@ class MyCreatedCourses extends Component {
 
   render() {
     console.log(isEmpty(this.state.data));
+    console.log((this.state.data));
     console.log(this.props.history.location.state);
     //if my listing is null show not found errror
     if (this.state.data !== null) {

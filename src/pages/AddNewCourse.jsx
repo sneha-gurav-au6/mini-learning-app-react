@@ -4,6 +4,9 @@ import "./style/addcourse.css";
 import { connect } from "react-redux";
 // import { addPro } from "../Redux/actions/productAction";
 import { withRouter } from "react-router-dom";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer, toast } from "react-toastify";
+toast.configure();
 
 // adding new courses for faculty
 
@@ -51,7 +54,10 @@ console.log(newData)
       newData
     );
     if (datas.status === 200) {
-      alert("Uploaded Successfully");
+      toast.success("Profile Edited Successfully!", {
+        position: toast.POSITION.TOP_CENTER,
+    });
+     
       this.props.history.push("/faculty");
     }
   };

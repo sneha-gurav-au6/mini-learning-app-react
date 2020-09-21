@@ -3,6 +3,10 @@ import { withRouter } from "react-router-dom";
 // import "./style/mainmycourses.css";
 import "./style/allcourse.css";
 import axios from "axios";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer, toast } from "react-toastify";
+import Spinner from "../components/Spinner"
+toast.configure();
 
 class AllCources extends Component {
   state = {
@@ -28,7 +32,11 @@ class AllCources extends Component {
     const data = await axios.post(
       `https://mini-learning-app.herokuapp.com/user/registeredCourse/${id}`
     );
-    alert("Course Registered successfully!!");
+    
+ 
+    toast.success("Course Registered successfully!!", {
+      position: toast.POSITION.TOP_CENTER,
+  });
     console.log(data.data);
   };
   render() {
@@ -39,28 +47,45 @@ class AllCources extends Component {
         <div className="container fluid">
           <div className="row">
             {this.state.course.map((p, index) => (
-              <div class="container">
-                <div class="card-group vgr-cards">
-                  <div class="card">
-                    <div class="card-body">
-                      <h4 class="card-title">{p.course_name}</h4>
-                      <p class="card-text">{p.description}</p>
-                      <p>
-                        <b>Course room</b>
-                        {p.course_room}
-                        {p._id}
-                      </p>
-                      <button
-                        id={p._id}
-                        onClick={this.handleRegister}
-                        class="btn btn-outline-primary"
-                      >
-                        Register Now
-                      </button>
-                    </div>
-                  </div>
+              <div className="col-md-3 cotm">
+              <div className="card cotm1">
+                <div className="card-body">
+                  <h5 className="card-title">
+                    <b>Title:</b> {p.course_name}
+                  </h5>
+                  <p>
+                    <b>Department:</b> {p.course_dept}
+                  </p>
+                  <p>
+                    <b>Course-room:</b> {p.course_room}
+                  </p>
+                  <p>
+                    <b>Course-team:</b> {p.course_team}
+                  </p>
+                  <p>
+                    <b>Waitlist-capacity:</b> {p.waitlist_capacit}
+                  </p>
+                  <p>
+                    <b>Description:</b> {p.description}
+                  </p>
                 </div>
+                <div className="card-footer">
+                  <small>
+                    Last updated{" "}
+                    {new Date(p.date).toUTCString().slice(4, 16)}
+                    <b></b>
+                  </small>
+                </div>
+          
+                
+                  <div>
+                    <button onClick={this.handleRegister} id={p._id} className="btn btn-primary bt1">
+                      Register Now
+                    </button>
+                  </div>
+                
               </div>
+            </div>
             ))}
           </div>
         </div>
@@ -68,7 +93,7 @@ class AllCources extends Component {
     }
     return (
       <div>
-        <h1>loading</h1>
+      <Spinner/>
       </div>
     );
   }

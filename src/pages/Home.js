@@ -13,13 +13,22 @@ class Home extends Component {
     return (
       <div className="main">
         <div className="child">
-          <h2 style={{ color: "white" }}>Select Who you are??</h2>
-          <button onClick={this.handlestudent} className="btn btn-primary but1">
+          <h1>Select To Continue As</h1>
+          <div style={{marginTop:"30px"}}>
+          <button className="but" onClick={this.handlestudent} className="btn btn-primary but1">
+            <span>
             Student
+            </span>
+           
           </button>
-          <button onClick={this.handlehange} className="btn btn-primary but1">
+          <button className="button" onClick={this.handlehange} className="btn btn-primary but1">
+            <span>
             Faculty
+            </span>
+           
           </button>
+          </div>
+          
         </div>
       </div>
     );
