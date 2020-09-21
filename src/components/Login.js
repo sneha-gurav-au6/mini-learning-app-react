@@ -113,9 +113,9 @@ if(nextprops.auth.user.id){
                 )}
               </div>
 
-              <h6>Not Registered??Register now</h6>
+              <h6>Not Registered??Go to home page</h6>
                 <button className="btn btn-primary">
-                  <a href="/"  style={{ color: "white" }}>Login</a>
+                  <a href="/"  style={{ color: "white" }}>Home</a>
                 </button>
             </form>
           </div>
