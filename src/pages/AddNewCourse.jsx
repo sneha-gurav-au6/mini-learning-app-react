@@ -54,7 +54,7 @@ console.log(newData)
       newData
     );
     if (datas.status === 200) {
-      toast.success("Profile Edited Successfully!", {
+      toast.success("Course Added Successfully!", {
         position: toast.POSITION.TOP_CENTER,
     });
      

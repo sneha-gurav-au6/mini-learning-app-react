@@ -25,7 +25,7 @@ class MainMyCreatedCourses extends Component {
               <b>Course-team:</b> {this.props.product.course_team}
             </p>
             <p>
-              <b>Waitlist-capacity:</b> {this.props.product.waitlist_capacit}
+              <b>Waitlist-capacity:</b> {this.props.product.waitlist_capacity}
             </p>
             <p>
               <b>Description:</b> {this.props.product.description}

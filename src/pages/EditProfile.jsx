@@ -130,7 +130,7 @@ class EditProfile extends Component {
                     type="text"
                     className="form-control form-control-lg"
                   
-                    name="about me"
+                    name="about_me"
                     onChange={this.textHandle}
                 
                   />
