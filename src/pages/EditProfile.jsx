@@ -198,7 +198,7 @@ class EditProfile extends Component {
                     type="text"
                     className="form-control form-control-lg"
                   
-                    name="language"
+                    name=" languages"
                     onChange={this.textHandle}
                 
                   />
