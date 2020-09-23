@@ -60,7 +60,7 @@ const Faculty = (props) => {
     toast.success("Logout Successfully!", {
       position: toast.POSITION.TOP_CENTER,
   });
-   
+  
     props.history.push("/login");
   };
 

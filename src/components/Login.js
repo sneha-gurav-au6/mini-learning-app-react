@@ -43,7 +43,7 @@ class Login extends Component {
   componentWillReceiveProps(nextprops) {
     console.log(nextprops.auth.user.id);
 if(nextprops.auth.user.id){
-  this.props.history.push("/faculty");
+  this.props.history.push("/user-dashboard");
 }
    
   }

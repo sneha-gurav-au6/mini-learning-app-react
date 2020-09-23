@@ -58,7 +58,7 @@ console.log(newData)
         position: toast.POSITION.TOP_CENTER,
     });
      
-      this.props.history.push("/faculty");
+      this.props.history.push("/user-dashboard");
     }
   };
 
